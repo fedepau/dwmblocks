@@ -7,9 +7,11 @@ static const Block blocks[] = {
 
 	{"", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g",					30,	0},
 
-	{"", "pamixer --get-volume-human",								30,	1},
+	{"", "volume.sh",										0,	10},
 
 	{"", "date '+%d %b %Y (%a) %H:%M'",								30,	0},
+
+	{"", "xbacklight -get | awk -F. '{print $1}'",							0,	10},
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
