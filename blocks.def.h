@@ -5,13 +5,15 @@ static const Block blocks[] = {
 
 	{"", "echo $(acpi -V | grep -m 1 \"Thermal 0\" | awk '{print $4}')°",				30,	0},
 
-	{"", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g",					30,	0},
+	{" ", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g",				30,	0},
 
 	{"", "volume.sh",										0,	10},
 
-	{"", "date '+%d %b %Y (%a) %H:%M'",								30,	0},
+	{" ", "date '+%d %b %Y (%a)'",									0,	0},
+	
+	{" ", "date '+%H:%M'",										60,	0},
 
-	{"", "xbacklight -get | awk -F. '{print $1}'",							0,	10},
+	{" ", "echo $(xbacklight -get | awk -F. '{print $1}')%",					0,	10},
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
